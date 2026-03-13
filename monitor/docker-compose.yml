@@ -1,0 +1,61 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: balanzas_mongodb
+    restart: unless-stopped
+    environment:
+      - TZ=America/Santiago
+    volumes:
+      - mongodb_data:/data/db
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "27017:27017"
+    networks:
+      balanzas_net:
+        ipv4_address: 192.168.85.10
+
+  backend:
+    build:
+      context: ./backend
+    container_name: balanzas_backend
+    restart: unless-stopped
+    # 1. Quitamos network_mode: host y abrimos la puerta manual:
+    #network_mode: host
+    ports:
+      - "5000:5000"
+    # 2. Lo conectamos a la red donde está Mongo:
+    networks:
+      - balanzas_net
+    environment:
+    # 3. Cambiamos localhost por mongodb y forzamos el puerto:
+      - MONGODB_CONNECTION=mongodb://mongodb:27017
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5000
+      - TZ=America/Santiago
+    depends_on:
+      - mongodb
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: balanzas_frontend
+    restart: unless-stopped
+    environment:
+      - TZ=America/Santiago
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+    networks:
+      balanzas_net:
+        ipv4_address: 192.168.85.12
+
+volumes:
+  mongodb_data:
+
+networks:
+  balanzas_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.85.0/24

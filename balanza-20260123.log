@@ -1,0 +1,174 @@
+2026-01-23 05:06:25.980 [INF] Iniciando aplicacion...
+2026-01-23 05:06:26.047 [INF] Logs en: C:\Program Files (x86)\BalanzaService\logs
+2026-01-23 05:06:26.141 [DBG] Hosting starting
+2026-01-23 05:06:26.161 [INF] Configuracion Serial: Puerto=COM2, BaudRate=9600
+2026-01-23 05:06:26.164 [INF] Puertos COM disponibles: COM1, COM2, COM3, COM4, COM5, COM6
+2026-01-23 05:06:26.179 [INF] ===========================================
+2026-01-23 05:06:26.179 [INF] Iniciando Servicio de Balanza
+2026-01-23 05:06:26.179 [INF] IP Local: 172.28.3.158
+2026-01-23 05:06:26.180 [INF] ===========================================
+2026-01-23 05:06:26.191 [INF] Puerto serial abierto exitosamente: COM2 @ 9600 bps
+2026-01-23 05:06:26.743 [INF] Now listening on: http://0.0.0.0:80
+2026-01-23 05:06:26.743 [DBG] Loaded hosting startup assembly BalanzaService
+2026-01-23 05:06:26.743 [INF] Application started. Hosting environment: Production; Content root path: C:\Program Files (x86)\BalanzaService\
+2026-01-23 05:06:26.743 [DBG] Hosting started
+2026-01-23 05:06:36.514 [DBG] Connection id "0HNIQAPA8HTEM" accepted.
+2026-01-23 05:06:36.514 [DBG] Connection id "0HNIQAPA8HTEN" accepted.
+2026-01-23 05:06:36.514 [DBG] Connection id "0HNIQAPA8HTEN" started.
+2026-01-23 05:06:36.514 [DBG] Connection id "0HNIQAPA8HTEM" started.
+2026-01-23 05:06:36.539 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:36.542 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2026-01-23 05:06:36.588 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:36.589 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:36.593 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:36.604 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:36.610 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:36.611 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:36.612 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 74.4682ms
+2026-01-23 05:06:36.759 [DBG] Connection id "0HNIQAPA8HTEO" accepted.
+2026-01-23 05:06:36.759 [DBG] Connection id "0HNIQAPA8HTEO" started.
+2026-01-23 05:06:36.770 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:36.771 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:36.771 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:36.772 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:36.772 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:36.773 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:36.773 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:36.773 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 2.9043ms
+2026-01-23 05:06:38.726 [DBG] Bytes disponibles en buffer: 18
+2026-01-23 05:06:38.732 [INF] Datos recibidos de balanza: [     1.65 kg PT]
+2026-01-23 05:06:38.747 [WRN] Balanza Dix no pudo parsear: [     1.65 kg PT]
+2026-01-23 05:06:39.751 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:39.751 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:39.751 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:39.751 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:39.752 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:39.752 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:39.752 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:39.752 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 1.2138ms
+2026-01-23 05:06:40.356 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:40.356 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:40.357 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:40.357 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:40.357 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:40.357 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:40.357 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:40.357 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.9259ms
+2026-01-23 05:06:40.719 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:40.719 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:40.719 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:40.719 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:40.719 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:40.719 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:40.719 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:40.719 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.5925ms
+2026-01-23 05:06:41.086 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:41.086 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:41.086 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.086 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.086 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:41.086 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.086 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:41.087 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.6628ms
+2026-01-23 05:06:41.270 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:41.271 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:41.271 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.271 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.271 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:41.271 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.271 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:41.271 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.6152ms
+2026-01-23 05:06:41.431 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:41.431 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:41.431 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.431 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.431 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:41.431 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.431 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:41.431 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.582ms
+2026-01-23 05:06:41.615 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:41.615 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:41.615 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.615 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.615 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:41.615 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.615 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:41.616 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.5649ms
+2026-01-23 05:06:41.783 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:41.783 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:41.783 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.783 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.783 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:41.784 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.784 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:41.784 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.5464ms
+2026-01-23 05:06:41.942 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:41.942 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:41.943 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.943 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.943 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:41.943 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:41.943 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:41.943 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.4707ms
+2026-01-23 05:06:42.094 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:42.094 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:42.094 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:42.095 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:42.095 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:42.095 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:42.095 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:42.095 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.602ms
+2026-01-23 05:06:42.238 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:42.238 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:42.238 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:42.238 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:42.239 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:42.239 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:42.239 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:42.239 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.4512ms
+2026-01-23 05:06:42.407 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:42.407 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:42.407 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:42.407 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:42.408 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:42.408 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:42.408 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:42.408 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.6274ms
+2026-01-23 05:06:44.758 [DBG] Bytes disponibles en buffer: 90
+2026-01-23 05:06:44.759 [INF] Datos recibidos de balanza: [     1.65 kg PT]
+2026-01-23 05:06:44.759 [WRN] Balanza Dix no pudo parsear: [     1.65 kg PT]
+2026-01-23 05:06:44.760 [INF] Datos recibidos de balanza: [     1.65 kg PT]
+2026-01-23 05:06:44.760 [WRN] Balanza Dix no pudo parsear: [     1.65 kg PT]
+2026-01-23 05:06:44.760 [INF] Datos recibidos de balanza: [     1.65 kg PT]
+2026-01-23 05:06:44.760 [WRN] Balanza Dix no pudo parsear: [     1.65 kg PT]
+2026-01-23 05:06:44.760 [INF] Datos recibidos de balanza: [     1.65 kg PT]
+2026-01-23 05:06:44.760 [WRN] Balanza Dix no pudo parsear: [     1.65 kg PT]
+2026-01-23 05:06:44.760 [INF] Datos recibidos de balanza: [     1.65 kg PT]
+2026-01-23 05:06:44.760 [WRN] Balanza Dix no pudo parsear: [     1.65 kg PT]
+2026-01-23 05:06:45.603 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:45.603 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:45.603 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:45.603 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:45.603 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:45.604 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:45.604 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:45.604 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.4471ms
+2026-01-23 05:06:45.932 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:45.932 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:45.932 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:45.932 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:45.932 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:45.933 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:45.933 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:45.933 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.4433ms
+2026-01-23 05:06:46.077 [INF] Request starting HTTP/1.1 GET http://localhost/balanza - null null
+2026-01-23 05:06:46.077 [DBG] 1 candidate(s) found for the request path '/balanza'
+2026-01-23 05:06:46.077 [DBG] Request matched endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:46.077 [INF] Executing endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:46.077 [INF] Writing value of type '<>f__AnonymousType1`1' as Json.
+2026-01-23 05:06:46.078 [INF] Executed endpoint 'HTTP: GET /balanza'
+2026-01-23 05:06:46.078 [DBG] Connection id "0HNIQAPA8HTEM" completed keep alive response.
+2026-01-23 05:06:46.078 [INF] Request finished HTTP/1.1 GET http://localhost/balanza - 200 null application/json; charset=utf-8 0.5863ms
+2026-01-23 05:06:50.777 [DBG] Bytes disponibles en buffer: 18
+2026-01-23 05:06:50.777 [INF] Datos recibidos de balanza: [     1.30 kg PT]
+2026-01-23 05:06:50.789 [WRN] Balanza Dix no pudo parsear: [     1.30 kg PT]

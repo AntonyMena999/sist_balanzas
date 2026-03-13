@@ -1,0 +1,6 @@
+valida el codigo que tenemos en solution, lee comunicacion.md (esto           
+  describe como funciona mi balanza), lo que esta sucediendo es que el peso     
+  se esta enviando continuamente a la url de SAP y debe enviarse solamente      
+  cuando se detecta el cambio de peso tras la lectura el bufer de balanza,      
+  es decir cuando pulso el boton de SET una sola vez y no en flujo como         
+  ahora se esta enviando  

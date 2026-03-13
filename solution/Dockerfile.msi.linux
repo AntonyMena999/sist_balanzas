@@ -1,0 +1,25 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0
+
+WORKDIR /src
+
+# Instalar msitools para crear MSI en Linux
+RUN apt-get update && apt-get install -y msitools && rm -rf /var/lib/apt/lists/*
+
+# Copiar proyecto
+COPY BalanzaService/ BalanzaService/
+COPY Installer/ Installer/
+
+# Publicar aplicacion para Windows x64
+RUN dotnet publish BalanzaService/BalanzaService.csproj -c Release -r win-x64 --self-contained -o Installer/publish
+
+# Copiar appsettings al publish
+RUN cp BalanzaService/appsettings.json Installer/publish/
+
+# Crear directorio de salida
+RUN mkdir -p /output
+
+# Construir MSI con wixl
+WORKDIR /src/Installer
+RUN wixl -v -o /output/BalanzaService.msi BalanzaServiceLinux.wxs
+
+# El MSI estara en /output/

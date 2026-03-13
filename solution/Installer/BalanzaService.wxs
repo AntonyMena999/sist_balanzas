@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <Product Id="*"
+           Name="BalanzaService"
+           Version="1.0.0.0"
+           Manufacturer="KFC Ecuador"
+           Language="1033"
+           UpgradeCode="A1B2C3D4-E5F6-7890-ABCD-EF1234567890">
+
+    <Package InstallerVersion="500"
+             Compressed="yes"
+             InstallScope="perMachine"
+             Description="Servicio de lectura de balanzas y envio a SAP"
+             Comments="Instalador BalanzaService v1.0" />
+
+    <MajorUpgrade DowngradeErrorMessage="Ya existe una version mas reciente instalada." />
+
+    <Media Id="1" Cabinet="balanza.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="INSTALLFOLDER" Name="BalanzaService">
+          <Component Id="MainExecutable" Guid="B2C3D4E5-F6A7-8901-BCDE-F23456789012">
+            <File Id="BalanzaServiceExe" Name="BalanzaService.exe" Source="publish/BalanzaService.exe" KeyPath="yes" />
+          </Component>
+          <Component Id="ConfigFile" Guid="C3D4E5F6-A7B8-9012-CDEF-345678901234">
+            <File Id="AppSettingsJson" Name="appsettings.json" Source="publish/appsettings.json" KeyPath="yes" />
+          </Component>
+          <Component Id="AspNetCore" Guid="D4E5F6A7-B8C9-0123-DEF0-456789012345">
+            <File Id="AspNetCoreDll" Name="aspnetcorev2_inprocess.dll" Source="publish/aspnetcorev2_inprocess.dll" KeyPath="yes" />
+          </Component>
+          <Component Id="WebConfig" Guid="E5F6A7B8-C9D0-1234-EF01-567890123456">
+            <File Id="WebConfigFile" Name="web.config" Source="publish/web.config" KeyPath="yes" />
+          </Component>
+          <Component Id="InstallScript" Guid="F6A7B8C9-D0E1-2345-F012-678901234567">
+            <File Id="InstallCmd" Name="install-service.cmd" Source="publish/install-service.cmd" KeyPath="yes" />
+          </Component>
+          <Component Id="UninstallScript" Guid="A7B8C9D0-E1F2-3456-0123-789012345678">
+            <File Id="UninstallCmd" Name="uninstall-service.cmd" Source="publish/uninstall-service.cmd" KeyPath="yes" />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="MainFeature" Title="BalanzaService" Level="1">
+      <ComponentRef Id="MainExecutable" />
+      <ComponentRef Id="ConfigFile" />
+      <ComponentRef Id="AspNetCore" />
+      <ComponentRef Id="WebConfig" />
+      <ComponentRef Id="InstallScript" />
+      <ComponentRef Id="UninstallScript" />
+    </Feature>
+
+    <CustomAction Id="InstallService" FileKey="InstallCmd" ExeCommand="" Execute="deferred" Impersonate="no" Return="ignore" />
+    <CustomAction Id="UninstallService" FileKey="UninstallCmd" ExeCommand="" Execute="deferred" Impersonate="no" Return="ignore" />
+
+    <InstallExecuteSequence>
+      <Custom Action="UninstallService" Before="RemoveFiles">Installed AND REMOVE~="ALL"</Custom>
+      <Custom Action="InstallService" After="InstallFiles">NOT Installed</Custom>
+    </InstallExecuteSequence>
+
+  </Product>
+</Wix>

@@ -1,0 +1,27 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0-windowsservercore-ltsc2022
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+# Instalar WiX Toolset
+RUN dotnet tool install --global wix --version 5.0.0
+
+# Agregar dotnet tools al PATH
+ENV PATH="C:\\Users\\ContainerUser\\.dotnet\\tools;${PATH}"
+
+WORKDIR /src
+
+# Copiar proyecto
+COPY BalanzaService/ BalanzaService/
+COPY Installer/ Installer/
+
+# Publicar aplicacion
+RUN dotnet publish BalanzaService/BalanzaService.csproj -c Release -r win-x64 --self-contained -o Installer/publish
+
+# Copiar appsettings al publish
+RUN Copy-Item BalanzaService/appsettings.json Installer/publish/
+
+# Construir MSI
+WORKDIR /src/Installer
+RUN wix build Package.wxs -o /output/BalanzaService.msi -arch x64
+
+# El MSI estara en /output/

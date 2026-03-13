@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+
+  <Package Name="BalanzaService"
+           Version="1.0.0.0"
+           Manufacturer="KFC Ecuador"
+           UpgradeCode="A1B2C3D4-E5F6-7890-ABCD-EF1234567890"
+           Scope="perMachine">
+
+    <MajorUpgrade DowngradeErrorMessage="Ya existe una version mas reciente instalada." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="BalanzaService">
+
+        <Component Id="ServiceExecutable" Guid="B2C3D4E5-F6A7-8901-BCDE-F23456789012" Bitness="always64">
+          <File Id="BalanzaServiceExe"
+                Source="publish/BalanzaService.exe"
+                KeyPath="yes" />
+
+          <ServiceInstall Id="BalanzaServiceInstall"
+                          Name="BalanzaService"
+                          DisplayName="Balanza Service - KFC"
+                          Description="Servicio de lectura de balanzas y envio a SAP"
+                          Type="ownProcess"
+                          Start="auto"
+                          ErrorControl="normal"
+                          Account="LocalSystem" />
+
+          <ServiceControl Id="BalanzaServiceControl"
+                          Name="BalanzaService"
+                          Start="install"
+                          Stop="both"
+                          Remove="uninstall"
+                          Wait="yes" />
+        </Component>
+
+        <Component Id="AppSettingsDefault" Guid="C3D4E5F6-A7B8-9012-CDEF-345678901234" Bitness="always64">
+          <File Id="AppSettingsJson"
+                Source="publish/appsettings.json"
+                KeyPath="yes" />
+        </Component>
+
+      </Directory>
+    </StandardDirectory>
+
+    <Feature Id="MainFeature" Title="BalanzaService" Level="1">
+      <ComponentRef Id="ServiceExecutable" />
+      <ComponentRef Id="AppSettingsDefault" />
+    </Feature>
+
+  </Package>
+</Wix>

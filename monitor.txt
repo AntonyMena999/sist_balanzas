@@ -1,0 +1,23 @@
+ok, vamos a crear un sistema dividido entre front back y persistencia para    
+  persistencia levantaremos una base de datos mongodb donde en una coleccion    
+  denominada balanzas se registre para cada una: {ip: la ip de la balanza,      
+  nombre: nombre de la balanza, ultima conexion: marca de tiempo del ultimo     
+  curl recibido con status ok, estado: ok si la ultima respeusta es 200, error  
+  si la ultima respeusta es diferente a 200} el back para monitorear la lista   
+  de las balanzas registradas en mongodb este back debe ser netcore y           
+  diseñado para un volumen alto de balanzas. El front debe ser un react donde   
+  tengamos un boton + en una barra superior donde podamos agregar las balanzas  
+  y se debe aperturar al pulsarlo un dialogo donde carguemos los datos de la    
+  balanza nombre y la ip. Y en el body mostrar en un grid las cards de las      
+  balanzas, el fondo del card debe ser success mientras su estado es 200 y      
+  danger si su estado es error. En el card se debe mostrar el nombre, la ip y   
+  la ultima conexión que se tuvo cuando fue 200 el estado del curl. levanta     
+  todo en contenedores docker en un dockercompose con una red nombrada          
+  192.168.85.0/24 usa las ip desde la .10 la red debe denominarse               
+  balanzas_net. genera al terminar una prueba con la balanza nombre Fileteado,  
+  ip 172.28.3.250 la url del curl debe ser http://IP/balanza y valida el        
+  funcionamiento como adicional puedes introducir una balanza nombre            
+  PruebaError ip 172.28.3.251 y ahi vas a valdiar el comprotamiento del front   
+  y backend como te he explicado. no generes los datos directo modificando la   
+  base sino siempre usando los comandos de backend para que sea realmente       
+  efectivo las pruebas, y corrige los errores que halles. 

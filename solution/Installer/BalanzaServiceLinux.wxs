@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <Product Id="*"
+           Name="BalanzaService"
+           Version="1.0.0.0"
+           Manufacturer="KFC Ecuador"
+           Language="1033"
+           UpgradeCode="A1B2C3D4-E5F6-7890-ABCD-EF1234567890">
+
+    <Package InstallerVersion="500"
+             Compressed="yes"
+             InstallScope="perMachine"
+             Description="Servicio de lectura de balanzas y envio a SAP"
+             Comments="Instalador BalanzaService v1.0" />
+
+    <MajorUpgrade DowngradeErrorMessage="Ya existe una version mas reciente instalada." />
+
+    <Media Id="1" Cabinet="balanza.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="INSTALLFOLDER" Name="BalanzaService">
+          <Component Id="MainExecutable" Guid="B2C3D4E5-F6A7-8901-BCDE-F23456789012">
+            <File Id="BalanzaServiceExe" Name="BalanzaService.exe" Source="publish/BalanzaService.exe" KeyPath="yes" />
+            <ServiceInstall Id="BalanzaServiceInstall"
+                            Name="BalanzaService"
+                            DisplayName="Balanza Service - KFC"
+                            Description="Servicio de lectura de balanzas y envio a SAP"
+                            Type="ownProcess"
+                            Start="auto"
+                            ErrorControl="normal"
+                            Account="LocalSystem" />
+            <ServiceControl Id="BalanzaServiceControl"
+                            Name="BalanzaService"
+                            Start="install"
+                            Stop="both"
+                            Remove="uninstall"
+                            Wait="yes" />
+          </Component>
+          <Component Id="ConfigFile" Guid="C3D4E5F6-A7B8-9012-CDEF-345678901234">
+            <File Id="AppSettingsJson" Name="appsettings.json" Source="publish/appsettings.json" KeyPath="yes" />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="MainFeature" Title="BalanzaService" Level="1">
+      <ComponentRef Id="MainExecutable" />
+      <ComponentRef Id="ConfigFile" />
+    </Feature>
+
+  </Product>
+</Wix>

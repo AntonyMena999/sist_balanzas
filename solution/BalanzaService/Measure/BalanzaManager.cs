@@ -15,6 +15,7 @@ public class BalanzaManager : IDisposable
     public double PesoActual { get; private set; }
     public DateTime? UltimaFechaMedicion { get; private set; }
     public string? UltimaBalanzaDetectada { get; private set; }
+    public bool HayLecturaNueva { get; private set; } = false;
 
     public BalanzaManager(IConfiguration config, ILogger<BalanzaManager> logger)
     {
@@ -146,6 +147,7 @@ public class BalanzaManager : IDisposable
                             UltimoPeso = peso.Value;
                             UltimaFechaMedicion = DateTime.Now;
                             UltimaBalanzaDetectada = balanza.Nombre;
+                            HayLecturaNueva = true;
                             _logger.LogInformation(">>> Balanza {Nombre}: Peso = {Peso} kg <<<", balanza.Nombre, peso.Value);
                             return;
                         }
@@ -175,6 +177,7 @@ public class BalanzaManager : IDisposable
     public void ResetearPesoActual()
     {
         PesoActual = 0.0;
+        HayLecturaNueva = false;
     }
 
     public void Dispose()

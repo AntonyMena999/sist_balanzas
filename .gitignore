@@ -1,7 +1,8 @@
 # .NET y Visual Studio
 .vs/
-bin/
-obj/
+**/bin/
+**/obj/
+**/publish/
 *.user
 *.suo
 *.pdb
@@ -14,6 +15,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .env
+.env.local
+.env.*.local
 
 # Python (Scripts de prueba)
 __pycache__/
@@ -30,21 +33,14 @@ logs/
 Installer/publish/
 Desplegar/
 
+# Ejecutables y binarios
+*.exe
+
 # Archivos de sistema
 Thumbs.db
 .DS_Store
 
 # Configuraciones con secretos (Opcional: descomentar si tienes contraseñas reales)
 appsettings.Production.json
-
-# Ejecutables y binarios
-*.exe
-**/bin/
-**/obj/
-**/publish/
-
-# Logs y archivos temporales
-*.log
-__pycache__/
-.vs/
-.DS_Store
+receptor_sap.py
+simular_serial.py

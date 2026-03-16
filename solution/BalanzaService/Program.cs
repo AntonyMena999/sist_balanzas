@@ -203,7 +203,7 @@ public class BalanzaWorker : BackgroundService
                     }
                 }
 
-                if (_balanzaManager.PesoActual > 0)
+                if (_balanzaManager.PesoActual > 0 && _balanzaManager.HayLecturaNueva)
                 {
                     // Verificar que la IP sigue siendo válida justo antes de enviar
                     var ipActual = ObtenerIpValida();

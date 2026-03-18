@@ -2,7 +2,7 @@
 
 > **Archivo de Trabajo:** `trabajocontexto.md`
 > **Estado:** En desarrollo activo / Fase de pruebas de integración.
-> **Última Actualización:** 2026-03-18
+> **Última Actualización:** 2026-03-17
 
 ## Descripción General
 
@@ -198,7 +198,7 @@ python balanza_simulada.py
 
 ## Fase 1 Completada - Modelos de Datos
 
-Fecha: 18/03/2026
+Fecha: 17/03/2026
 
 Se crearon los siguientes modelos en `monitor/backend/Models/`:
 - `Dominio.cs` — colección `dominios`, configuración LDAP para Active Directory
@@ -212,9 +212,45 @@ Todos los IDs son Guid con BsonRepresentation(BsonType.String) excepto Pais que 
 Namespace: BalanzasMonitor.Models
 Docker compiló y levantó sin errores tras los cambios.
 
-## Próximo paso: Fase 2 — Autenticación AD + JWT
-- Endpoint POST /api/auth/login
-- Verificar usuario en colección `usuarios`
-- Validar credenciales contra LDAP usando datos de colección `dominios`
-- Generar JWT con payload: userId, email, rol, pais
-- Middleware que protege todas las rutas
+## Fase 2 Completada - Autenticación AD + JWT
+
+Fecha: 18/03/2026
+
+### Paquetes NuGet instalados en monitor/backend:
+- Microsoft.AspNetCore.Authentication.JwtBearer 8.0.0
+- System.IdentityModel.Tokens.Jwt 7.6.3
+- Novell.Directory.Ldap.NETStandard 3.6.0
+- BCrypt.Net-Next 4.0.3
+
+### Archivos creados:
+- monitor/backend/Services/AuthService.cs — validación LDAP contra AD y generación JWT
+- monitor/backend/Controllers/AuthController.cs — endpoint POST /api/auth/login
+
+### Archivos modificados:
+- monitor/backend/Program.cs — registrado AuthService, configurado JWT middleware
+- monitor/backend/appsettings.json — agregada sección Jwt:Secret
+
+### Flujo de login implementado:
+1. Recibe email + password
+2. Busca usuario en colección usuarios de MongoDB
+3. Verifica estado activo (estado=1)
+4. Busca dominio LDAP en colección dominios
+5. Valida credenciales contra AD de KFC (kfc.com.ec:389)
+6. Busca rol en colección roles
+7. Genera JWT con payload: userId, email, rol, pais — expira en 8 horas
+
+### Datos de prueba insertados en MongoDB (balanzas_db):
+- dominios: KFC Ecuador - GYE (ldap_hosts: kfc.com.ec, puerto 389)
+- roles: admin con permisos completos
+- usuarios: juan.alejandro@kfc.com.ec con rol admin y pais EC
+
+### Probado y funcionando:
+POST /api/auth/login → respuesta 200 con token JWT válido
+Servidor LDAP: kfc.com.ec — IP: 192.168.159.123 — TcpTestSucceeded: True
+
+## Próximo paso: Fase 3 — Frontend React estilo KFC
+- Pantalla de login: fondo negro izquierda + formulario blanco derecha + botón rojo
+- Animación de balanza durante carga
+- Sidebar dinámico: Admin ve todo, Soporte solo ve Ubicaciones
+- Dashboard filtrado por plantas asignadas
+- Integrar JWT en todas las llamadas al backend

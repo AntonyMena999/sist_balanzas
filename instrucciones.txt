@@ -3,4 +3,22 @@ valida el codigo que tenemos en solution, lee comunicacion.md (esto
   se esta enviando continuamente a la url de SAP y debe enviarse solamente      
   cuando se detecta el cambio de peso tras la lectura el bufer de balanza,      
   es decir cuando pulso el boton de SET una sola vez y no en flujo como         
-  ahora se esta enviando  
+  ahora se esta enviando
+---
+ACTUALIZACIÓN - Fix enviado a SAP continuamente (resuelto en código, pendiente prueba física)
+
+PROBLEMA: El peso se enviaba en loop continuo a SAP en lugar de una sola vez por SET.
+
+SOLUCIÓN APLICADA:
+- BalanzaManager.cs: agregada propiedad HayLecturaNueva, se activa en true al parsear 
+  un peso, se resetea en false dentro de ResetearPesoActual()
+- Program.cs: condición de envío cambiada a PesoActual > 0 && HayLecturaNueva
+
+PROBADO: con puertos virtuales COM10/COM11 (com0com) y receptor SAP falso en localhost:9999.
+3 envíos exactos por 3 SET simulados, incluyendo mismo peso repetido. ✓
+
+PENDIENTE: validar con balanza física LP7516 conectada al puerto real.
+
+CÓMO REVERTIR SI HAY PROBLEMAS:
+- BalanzaManager.cs: eliminar HayLecturaNueva y dejar ResetearPesoActual() solo con PesoActual = 0
+- Program.cs: cambiar condición de vuelta a if (_balanzaManager.PesoActual > 0)  

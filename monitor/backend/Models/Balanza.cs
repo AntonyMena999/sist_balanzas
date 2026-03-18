@@ -32,6 +32,9 @@ public class Balanza
 
     [BsonElement("tiempoDanger")]
     public int TiempoDanger { get; set; } = 60;
+
+    [BsonElement("ubicacion_id")]
+    public Guid? UbicacionId { get; set; }
 }
 
 public class BalanzaCreateDto

@@ -195,3 +195,26 @@ python balanza_simulada.py
 1.  [ ] **Validar Fix SAP:** Probar con balanza física real (LP7516) que el peso se envíe una sola vez al estabilizarse.
 2.  [ ] **Timeout Monitor:** Verificar que si una balanza se apaga, el monitor cambie a rojo en < 10 segundos.
 3.  [ ] **Nuevos Modelos:** Si llega una balanza nueva, crear `BalanzaNuevoModelo.cs` implementando `IBalanza` y registrar en `BalanzaManager`.
+
+## Fase 1 Completada - Modelos de Datos
+
+Fecha: 18/03/2026
+
+Se crearon los siguientes modelos en `monitor/backend/Models/`:
+- `Dominio.cs` — colección `dominios`, configuración LDAP para Active Directory
+- `Rol.cs` — colección `roles`, permisos como string separado por comas
+- `Usuario.cs` — colección `usuarios`, referencia a RolId y DominioId como Guid
+- `Pais.cs` — colección `paises`, ID es código ISO string ej: "EC"
+- `Ubicacion.cs` — colección `ubicaciones`, referencia PaisId como string
+- `Balanza.cs` — modificado, se agregó campo `UbicacionId (Guid?)` nullable
+
+Todos los IDs son Guid con BsonRepresentation(BsonType.String) excepto Pais que usa string ISO.
+Namespace: BalanzasMonitor.Models
+Docker compiló y levantó sin errores tras los cambios.
+
+## Próximo paso: Fase 2 — Autenticación AD + JWT
+- Endpoint POST /api/auth/login
+- Verificar usuario en colección `usuarios`
+- Validar credenciales contra LDAP usando datos de colección `dominios`
+- Generar JWT con payload: userId, email, rol, pais
+- Middleware que protege todas las rutas

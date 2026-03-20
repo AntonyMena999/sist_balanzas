@@ -254,3 +254,53 @@ Servidor LDAP: kfc.com.ec — IP: 192.168.159.123 — TcpTestSucceeded: True
 - Sidebar dinámico: Admin ve todo, Soporte solo ve Ubicaciones
 - Dashboard filtrado por plantas asignadas
 - Integrar JWT en todas las llamadas al backend
+## Fase 3 En Progreso - Frontend React Estilo KFC
+
+Fecha: 20/03/2026
+
+### Archivos creados en monitor/frontend/src/:
+- services/auth.js — manejo JWT: guardarToken, obtenerToken, obtenerUsuario, cerrarSesion, estaAutenticado
+- pages/Login.js — pantalla login dos columnas negro/blanco estilo KFC, iconos react-icons/fa
+- pages/Dashboard.js — cards de balanzas con auto-refresh 3s
+- pages/Usuarios.js — tabla CRUD usuarios con modal, dropdowns de Rol y Dominio dinámicos, País como dropdown fijo (EC, COL, CH, VEN, BR)
+- components/Sidebar.js — menú lateral negro, rutas por rol admin/soporte, iconos react-icons/fa
+- components/Layout.js — wrapper protegido con JWT, redirige a /login si no autenticado
+
+### Archivos modificados:
+- App.js — reemplazado completamente con react-router-dom v6, rutas protegidas con Layout
+- package.json — agregados: react-router-dom@6, jwt-decode@3.1.2, react-icons
+
+### Archivos creados en monitor/backend/Controllers/:
+- UsuariosController.cs — CRUD completo colección usuarios
+- RolesController.cs — GET /api/roles
+- DominiosController.cs — GET y POST /api/dominios
+
+### Datos agregados en MongoDB:
+- roles: soporte agregado con permisos dashboard,ejecuciones,errores,ordenes
+
+### Funcionalidades probadas y funcionando:
+- Login con AD de KFC (kfc.com.ec:389) redirige al dashboard
+- Cerrar sesión redirige a /login con window.location.href
+- Sidebar muestra secciones según rol (admin ve todo, soporte solo Dashboard)
+- CRUD usuarios funciona: crear, listar, eliminar
+- Dropdowns de Rol y Dominio cargan dinámico desde backend
+
+## Pendiente para el Lunes 23/03/2026
+
+### Correcciones prioritarias antes de continuar:
+1. Responsive Login — el panel izquierdo y derecho no es responsive en pantallas pequeñas
+2. Responsive Sidebar — el sidebar no es responsive, se superpone al contenido en pantallas pequeñas
+3. Responsive Dashboard y páginas internas — el layout general no se adapta a diferentes pantallas
+4. Animación login — botón "Iniciar Sesión" debe mostrar spinner giratorio mientras carga, y al redirigir al dashboard mostrar animación de balanza en el centro de la pantalla
+5. Botón Actualizar en Dashboard — agregar botón con icono de refresh junto al botón +
+6. Diseño Dashboard header — el recuadro blanco redondeado del título "Dashboard" y las estadísticas Total/Conectadas/Desconectadas necesitan revisión de diseño para que sea consistente con el resto
+
+### Páginas pendientes de crear:
+- pages/Dominios.js — CRUD dominios con tabla y modal
+- pages/Paises.js — listado de países
+- pages/Ubicaciones.js — CRUD ubicaciones con tabla y modal
+
+### Mejoras pendientes:
+- Funcionalidad editar usuario (botón editar actualmente visible pero sin función)
+- Proteger rutas del backend con JWT middleware [Authorize]
+- Mostrar nombre del usuario en Sidebar en vez de "Usuario"

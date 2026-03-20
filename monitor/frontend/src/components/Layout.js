@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
 
   const handleCerrarSesion = () => {
     cerrarSesion();
-    navigate('/login');
+    window.location.href ='/login';
   };
 
   return (

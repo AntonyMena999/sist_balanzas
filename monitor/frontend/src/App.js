@@ -4,7 +4,7 @@ import Login from './pages/Login';
 import Layout from './components/Layout';
 import { estaAutenticado } from './services/auth';
 import Dashboard from './pages/Dashboard';
-const Usuarios = () => <h1>Usuarios</h1>;
+import Usuarios from './pages/Usuarios';
 const Dominios = () => <h1>Dominios</h1>;
 const Paises = () => <h1>Países</h1>;
 const Ubicaciones = () => <h1>Ubicaciones</h1>;
